@@ -1,0 +1,48 @@
+<div class="content-item">
+  <form [formGroup]="authorForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-inputs">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author First Name: </mat-label>
+        <input
+          matInput
+          placeholder="Insert Author First Name"
+          id="firstName"
+          type="text"
+          formControlName="firstName"
+        />
+        <mat-hint *ngIf="authorForm.get('firstName')?.invalid &&
+          authorForm.get('firstName')?.errors &&
+          authorForm.get('firstName')?.touched"
+        >
+          First name is a required field
+        </mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Author Last Name: </mat-label>
+        <input
+          matInput
+          placeholder="Insert Author Last Name"
+          id="lastName"
+          type="text"
+          formControlName="lastName"
+        />
+        <mat-hint *ngIf="authorForm.get('lastName')?.invalid &&
+          authorForm.get('lastName')?.errors &&
+          authorForm.get('lastName')?.touched"
+        >
+          Last name is a required field
+        </mat-hint>
+      </mat-form-field>
+    </div>
+
+    <button
+      mat-raised-button color="primary"
+      type="submit"
+      [disabled]="!authorForm.valid"
+    >
+      Add Author
+    </button>
+  </form>
+</div>

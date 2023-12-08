@@ -15,7 +15,17 @@ import { BookService } from '../../services/book.service';
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, MatAutocompleteModule, MatRadioModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatAutocompleteModule,
+    MatRadioModule
+  ],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.css'
 })
@@ -48,8 +58,7 @@ export class AddBookComponent implements OnInit {
     this.retrieveAuthor();
   }
 
-  onSubmit () {
-
+  onSubmit(): void {
     const data: Book = {
       authorId: this.bookForm.value.author.id,
       title: this.bookForm.value.title!,
@@ -68,7 +77,7 @@ export class AddBookComponent implements OnInit {
       });
   }
 
-  onReset() {
+  onReset(): void {
     this.bookForm.reset({
       title: "",
       author: null,
@@ -76,7 +85,6 @@ export class AddBookComponent implements OnInit {
       price: 0,
       published: false
     });
-    console.log(this.bookForm);
   }
 
   retrieveAuthor(): void {

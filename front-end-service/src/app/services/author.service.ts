@@ -13,6 +13,10 @@ export class AuthorService {
 
   constructor(private http: HttpClient) { }
 
+  create(data: any): Observable<Author>{
+    return this.http.post(BASE_URL, data);
+  }
+
   getAll(): Observable<Author[]> {
     return this.http.get<Book[]>(BASE_URL);
   }
