@@ -1,0 +1,74 @@
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 4.5vw;
+}
+
+h2 {
+  font-size: 4.0vw;
+}
+
+h3 {
+  font-size: 3.5vw;
+}
+
+h4 {
+  font-size: 3.0vw;
+}
+
+h5 {
+  font-size: 2.5vw;
+}
+
+h6 {
+  font-size: 2.0vw;
+}
+
+main {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+nav {
+  width: inherit;
+  position: absolute;
+  top: 0;
+  margin: 2rem 0;
+}
+
+.container {
+  width: 80%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.navbar {
+  list-style-type: none;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  justify-content: left;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-item {
+  width: 100%;
+  height: inherit;
+}

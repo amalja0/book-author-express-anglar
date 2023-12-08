@@ -1,0 +1,48 @@
+<div>
+
+  <mat-form-field *ngIf="choosenFilter === ''">
+    <mat-label>Seacrh by</mat-label>
+    <mat-select [(ngModel)]="choosenFilter">
+      <mat-option *ngFor="let filter of filterChoices" [value]="filter">{{filter}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p *ngIf="choosenFilter !== ''">
+    <mat-form-field appearance="fill">
+      <input
+        matInput
+        id="title"
+        type="text"
+        [placeholder]="choosenFilter === 'title' ? 'Search by title' : 'Search by author'"
+        (input)="choosenFilter === 'title' ? searchTitle($event) : searchByAuthor($event)"
+      />
+      <button mat-icon-button matSuffix (click)="resetFilterChoices()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+
+  <table mat-table [dataSource]="books">
+
+    <ng-container *ngFor="let header of tableHeader; index as index" [matColumnDef]="header">
+
+      <th mat-header-cell *matHeaderCellDef>{{header}}</th>
+
+      <ng-container *ngIf="header !== 'Actions'">
+        <td mat-cell *matCellDef="let book">{{getPropertyValue(book, index)}}</td>
+      </ng-container>
+
+      <ng-container *ngIf="header === 'Actions'">
+        <td mat-cell *matCellDef="let book">
+          <button mat-raised-button color="primary" (click)="seeBookDetails(book.id)">Details</button>
+        </td>
+      </ng-container>
+
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="tableHeader"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableHeader"></tr>
+
+  </table>
+
+</div>

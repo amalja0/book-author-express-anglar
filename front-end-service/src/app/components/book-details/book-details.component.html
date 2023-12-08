@@ -1,0 +1,50 @@
+<div>
+  <div *ngIf="!isUpdate">
+    <div *ngFor="let title of listTitle; index as i">
+      <p>{{title}}: {{getPropertyValue(i)}}</p>
+    </div>
+    <div>
+      <button (click)="setUpdateBook()">Update</button>
+    </div>
+    <div>
+      <button (click)="onDelete()">Delete</button>
+    </div>
+    <div>
+      <button (click)="onRouteBack()">Back</button>
+    </div>
+  </div>
+  <div *ngIf="isUpdate">
+    <form [formGroup]="updateBookForm" (ngSubmit)="onSubmitUpdate()">
+      <label> Title </label>
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+      />
+      <label>
+        Description
+      </label>
+      <textarea
+        id="description"
+        rows="3"
+        formControlName="description"
+      ></textarea>
+      <label>
+        Publish Now
+      </label>
+      <select
+        id="published"
+        formControlName="published"
+      >
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+      </select>
+      <div>
+        <button type="submit">Save</button>
+      </div>
+      <div>
+        <button (click)="onCancelUpdate()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
