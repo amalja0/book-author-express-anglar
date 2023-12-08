@@ -1,0 +1,43 @@
+form mat-form-field {
+  margin-bottom: 1rem;
+}
+
+.content-item {
+  width: 100%;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-inputs mat-form-field {
+  width: 100%;
+}
+
+.form-inputs {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+.form mat-card-content mat-form-field {
+  width: 100%;
+}
+
+.publish-radio-button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+mat-card-title {
+  padding: 0.5rem 1rem;
+}
+
+.detail-key {
+  font-weight: bold;
+}
+
